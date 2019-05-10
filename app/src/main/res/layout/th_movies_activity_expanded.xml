@@ -24,6 +24,20 @@
                android:id="@+id/th_movies_list_activity_coverBg"
                app:layout_constraintEnd_toEndOf="parent"
     />
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="60dp"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/relativeTitleHolder"
+                    android:background="@color/colorTransparent">
+
+        <TextView
+                android:id="@+id/th_movies_list_activity_title"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/colorWhite"
+                android:text=""/>
+
+    </RelativeLayout>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +50,7 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"/>
     <TextView
-            android:text="TextView"
+
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:id="@+id/th_movies_list_activity_description" android:layout_marginTop="8dp"
@@ -44,5 +58,53 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
+    <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            app:cardCornerRadius="6dp"
+            app:layout_goneMarginEnd="5dp"
+            android:backgroundTint="@color/colorOrange"
+            android:layout_marginBottom="18dp"
+            app:cardMaxElevation="3dp"
+            android:elevation="3dp"
+            android:id="@+id/th_movies_list_activity_holder_date"
+            android:padding="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/th_movies_list_activity_description"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" >
 
+        <TextView android:layout_width="wrap_content"
+                  android:layout_marginStart="10dp"
+                  android:layout_marginEnd="10dp"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/th_movies_list_activity_date_textView"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="@color/colorWhite"
+                  android:textSize="9sp"
+                  android:text="20/04/1990"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/th_movies_list_activity_holder_rating"
+            app:cardCornerRadius="6dp"
+            app:layout_goneMarginEnd="5dp"
+            android:backgroundTint="@color/colorOrange"
+            android:layout_marginBottom="18dp"
+            app:cardMaxElevation="3dp"
+            android:elevation="3dp"
+            android:padding="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/th_movies_list_activity_description"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/th_movies_list_activity_holder_date">
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_marginStart="10dp"
+                  android:layout_marginEnd="10dp"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/th_movies_list_activity_rating_textView"
+                  android:layout_gravity="center_vertical"
+                  android:textColor="@color/colorWhite"
+                  android:textSize="9sp"
+                  android:text="4.7"/>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

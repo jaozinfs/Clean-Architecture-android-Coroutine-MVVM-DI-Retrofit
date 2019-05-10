@@ -29,6 +29,7 @@ android {
 dependencies {
     implementation project(path: ':domain')
     implementation project(path: ':data')
+    implementation 'androidx.cardview:cardview:1.0.0'
 }
 
 apply from: rootProject.file("buildsystem/dependenciesScript.gradle")

@@ -7,6 +7,7 @@
     <color name="colorYellow">#FFF0</color>
     <color name="colorTransparent">#2C000000</color>
     <color name="colorWhite">#FFF</color>
+    <color name="colorOrange">#FF5722</color>
 
 
     <!-- color MoviesListActivity -->
