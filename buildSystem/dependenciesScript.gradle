@@ -1,0 +1,25 @@
+dependencies {
+
+    def labelDependencies = "${project.name}Dependencies"
+    def labelTestDependencies = "${project.name}TestDependencies"
+    def labelAndroidTestDependencies = "${project.name}AndroidTestDependencies"
+    def labelKapt = "${project.name}Kapt"
+
+    def dependencies = rootProject.extensions.extraProperties.has(labelDependencies) ? rootProject.ext["$labelDependencies"] : []
+    def testDependencies = rootProject.extensions.extraProperties.has(labelTestDependencies) ? rootProject.ext["$labelTestDependencies"] : []
+    def androidTestDependencies = rootProject.extensions.extraProperties.has(labelAndroidTestDependencies) ? rootProject.ext["$labelAndroidTestDependencies"] : []
+    def _kapt = rootProject.extensions.extraProperties.has(labelKapt) ? rootProject.ext["$labelKapt"] : []
+
+    dependencies.each { v -> implementation v }
+    testDependencies.each { v -> testImplementation v }
+    androidTestDependencies.each { v -> androidTestImplementation v }
+    _kapt.each { v -> kapt v }
+
+    println "dependencies for ${project.name} in folder ${project.projectDir}"
+    println "\t dependencies: ${dependencies.size}"
+    println "\t testDependencies: ${testDependencies.size}"
+    println "\t androidTestDependencies: ${androidTestDependencies.size}"
+    println "\t kapt: ${androidTestDependencies.size}"
+
+/******* end *******/
+}

@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">StarWars</string>
+
+
+
+    <!-- Error messages -->
+    <string name="activity_dialog_error_message"> Aconteceu um erro interno, tente novamente mais tarde! </string>
+
+    <string name="error_io">An error has ocurred, check your network connection</string>
+    <string name="error_404">Not found</string>
+    <string name="error_http_general">An error has ocurred, try again later</string>
+
+
+    <!-- title for holder object in listmodel movie for  'SW Movies List Activity' -->
+    <string name="layout_listmodel_title_movie_lb">Title Movie</string>
+
+
+    <!-- Headers Details of Movie for ' SW Details Movie Activity' -->
+    <string name="layout_listmodel_created_date_movie_lb">20/04/2019</string>
+    <string name="layout_listmodel_description_movie_lb">It is a period of civil war.r Rebel spaceships, strikingr from
+        a hidden base, have wonr their first victory againstr the evil Galactic Empire.r r During the battle, Rebelr
+        spies managed to steal secretr plans to the Empire\'sr ultimate weapon, the DEATHr STAR, an armored spacer
+        station with enough powerr to destroy an entire planet.r r Pursued by the Empire\'sr sinister agents, Princessr
+        Leia races home aboard herr starship, custodian of ther stolen plans that can save herr people and restorer
+        freedom to the galaxy....
+    </string>
+    <string name="sw_details_activity_director_header_txt">- Diretor</string>
+    <string name="sw_details_activity_producer_header_txt">- Produtor</string>
+    <string name="sw_details_activity_description_header_txt">Descrição</string>
+    <string name="string_for_size_of_shimmer">String for size of shimmer</string>
+    <string name="search_hint">Pesquisar</string>
+    <string name="back">Voltar</string>
+
+</resources>

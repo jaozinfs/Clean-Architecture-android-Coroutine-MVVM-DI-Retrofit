@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorShimmer">#DCDCDC</color>
+    <color name="colorYellow">#FFF0</color>
+    <color name="colorTransparent">#2C000000</color>
+    <color name="colorWhite">#FFF</color>
+
+
+    <!-- color MoviesListActivity -->
+    <color name="color_movielist_activity_bg">#F8F6F6</color>
+    <color name="color_movielist_activity_headers_bg">#EEECEC</color>
+    <color name="color_movielist_activity_headers_text">#C4C1C1</color>
+
+    <!-- colors ListModel movie holder -->
+    <color name="color_listmodel_movie_description">#CECBCB</color>
+
+
+</resources>

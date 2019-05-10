@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="185dp"
+        android:layout_marginBottom="16dp"
+        android:background="#FFF">
+
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="125dp" android:id="@+id/relativeLayout"
+                    app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+        <ImageView android:id="@+id/listmodel_th_movie_cover_imageView"
+                   android:layout_width="match_parent"
+                   android:layout_height="125dp"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"/>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/colorTransparent">
+
+
+            <TextView android:id="@+id/listmodel_th_movie_title_textView"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content" android:layout_marginBottom="8dp"
+                      app:layout_constraintBottom_toBottomOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      android:layout_marginStart="8dp"
+                      android:gravity="center"
+                      android:ellipsize="end"
+                      android:textColor="@color/colorWhite"
+                      android:maxLines="1"
+                      android:layout_marginTop="8dp"
+
+            />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+    <ImageView android:layout_width="26dp" android:layout_height="30dp"
+               android:background="@drawable/ic_star_24dp"
+               android:backgroundTint="@color/colorYellow"
+               android:id="@+id/imageView"
+               app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+               app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"
+               app:layout_constraintEnd_toStartOf="@+id/listmodel_th_movie_vote_a_textView"
+               android:layout_marginEnd="8dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="5.4" android:id="@+id/listmodel_th_movie_vote_a_textView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" android:layout_marginBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+    <TextView
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/listmodel_th_movie_description_textView"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            android:layout_marginBottom="8dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

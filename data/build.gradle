@@ -1,0 +1,32 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+android {
+    def config = rootProject.ext
+
+    compileSdkVersion config["androidCompileSdkVersion"] //use brackets to better visualization
+
+    defaultConfig {
+        minSdkVersion config["androidMinSdkVersion"]
+        targetSdkVersion config["androidTargetSdkVersion"]
+        versionCode config["androidVersionCode"]
+        versionName config["androidVersionName"]
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':domain')
+}
+
+apply from: rootProject.file("buildSystem/dependenciesScript.gradle")
