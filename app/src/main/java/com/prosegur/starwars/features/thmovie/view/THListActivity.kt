@@ -27,6 +27,7 @@ import com.prosegur.data.films.BASE_BACKDROP_IMAGE_PATTER
 import com.prosegur.s.R
 import com.prosegur.starwars.utils.loadImageUrl
 import kotlinx.android.synthetic.main.layout_listmodel_th_movie.*
+import java.util.*
 
 
 class THListActivity : BaseActivity(), SearchView.OnQueryTextListener{
@@ -36,7 +37,10 @@ class THListActivity : BaseActivity(), SearchView.OnQueryTextListener{
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        Timber.d("On Query Text Change: $newText")
+
+        viewModel.getPosts().value?.forEach {
+            it
+        }
         return true
     }
 
@@ -51,17 +55,9 @@ class THListActivity : BaseActivity(), SearchView.OnQueryTextListener{
         setContentView(R.layout.th_movies_activity)
         setupViews()
         setupObservers()
-        loadData()
-
-
 
         constraintSet1.clone(constrantLayout)
-
         constraintSet2.clone(this, R.layout.th_movies_activity_expanded)
-
-
-
-
 
     }
 
@@ -76,18 +72,31 @@ class THListActivity : BaseActivity(), SearchView.OnQueryTextListener{
         changeLayout(movie)
     }
 
-    private fun loadData() {
-        launchUI {
-            viewModel.loadCharacters()
-        }
-    }
 
     private fun setupObservers() {
-        viewModel.observe(this, ::showProgressDialog, ::stopProgressDialog, ::showToastMessage, ::handleData, null, null)
+//        viewModel.observe(this, ::showProgressDialog, ::stopProgressDialog, ::showToastMessage, ::handleData, null, null)
+        viewModel.getMutableSetDetailsState().observe(this, androidx.lifecycle.Observer {
+            when(it){
+                true->setDetails()
+                false->removeDetails()
+            }
+        })
+        viewModel.getDetailsDescription().observe(this, androidx.lifecycle.Observer {
+            th_movies_list_activity_description.text = it
+        })
 
-    }
-    fun handleData(movies: List<THMovie>?){
-       adapter.submitList(movies)
+        viewModel.getDetailsImage().observe(this, androidx.lifecycle.Observer {
+            val posterUri = Uri.parse(BASE_BACKDROP_IMAGE_PATTER)
+                .buildUpon()
+                .appendEncodedPath(it)
+                .build()
+
+            th_movies_list_activity_coverBg.loadImageUrl(posterUri)
+        })
+
+        viewModel.getPosts().observe(this, androidx.lifecycle.Observer {
+            adapter.submitList(it)
+        })
     }
 
 
@@ -107,26 +116,18 @@ class THListActivity : BaseActivity(), SearchView.OnQueryTextListener{
     }
 
     fun changeLayout(movie: THMovie?){
-        TransitionManager.beginDelayedTransition(constrantLayout)
-
-
-        val constraint = if (changed){
-            th_movies_list_activity_coverBg.visibility = View.GONE
-            constraintSet1
-        } else {
-            Timber.d("load")
-            val posterUri = Uri.parse(BASE_BACKDROP_IMAGE_PATTER)
-                .buildUpon()
-                .appendEncodedPath(movie?.backdrop_path)
-                .build()
-            th_movies_list_activity_coverBg.visibility = View.VISIBLE
-            th_movies_list_activity_coverBg.loadImageUrl(posterUri)
-            constraintSet2
-        }
-        constraint.applyTo(constrantLayout)
-        changed = !changed
+        viewModel.changeDetailsLayout(movie)
     }
 
+    fun setDetails(){
+        TransitionManager.beginDelayedTransition(constrantLayout)
+        constraintSet2.applyTo(constrantLayout)
+    }
+
+    fun removeDetails(){
+        TransitionManager.beginDelayedTransition(constrantLayout)
+        constraintSet1.applyTo(constrantLayout)
+    }
 
     fun btBackLayout(view: View){
         changeLayout(null)

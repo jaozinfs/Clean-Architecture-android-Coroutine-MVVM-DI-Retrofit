@@ -14,5 +14,5 @@ class THMovieUseCase( private val repo: THMovieRepository) : UseCase<List<THMovi
     }
 
 
-    data class Params(val page: Int = 1, val apikey: String?)
+    data class Params(val page: Int, val apikey: String?)
 }

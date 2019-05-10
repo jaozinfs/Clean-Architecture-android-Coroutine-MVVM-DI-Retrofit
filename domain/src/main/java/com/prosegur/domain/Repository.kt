@@ -8,6 +8,6 @@ interface Repository<T> {
     suspend fun insert(t: T)
     suspend fun delete(t: T)
     suspend fun update(t: T)
-    suspend fun list(page: Int = 1, apiKey: String?): List<T>
+    suspend fun list(page: Int, apiKey: String?): List<T>
     suspend fun get(id: Int): T?
 }

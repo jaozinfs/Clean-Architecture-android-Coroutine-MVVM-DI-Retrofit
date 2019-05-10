@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.paging.PagedListAdapter
 
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -19,7 +20,7 @@ import com.prosegur.starwars.features.starwars.adapter.MoviesAdapter
 import com.prosegur.starwars.utils.dateToString
 import com.prosegur.starwars.utils.loadImageUrl
 
-open class THMovieAdapter (private val clickListener : (Int, THMovie)-> Unit) : ListAdapter<THMovie, THMovieAdapter.THMoviewHolder>(DIFF_CALLBACK){
+open class THMovieAdapter (private val clickListener : (Int, THMovie)-> Unit) :  PagedListAdapter<THMovie, THMovieAdapter.THMoviewHolder>(DIFF_CALLBACK){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): THMoviewHolder {
@@ -28,12 +29,13 @@ open class THMovieAdapter (private val clickListener : (Int, THMovie)-> Unit) : 
     }
 
     override fun onBindViewHolder(holder: THMoviewHolder, position: Int) {
-        val movie = getItem(position)
-        holder.bind(movie)
-
-        with(holder.itemView){
-            setOnClickListener{clickListener(position, movie)}
+        getItem(position)?.let { holder.bind(it)
+            with(holder.itemView){
+                setOnClickListener{clickListener(position, getItem(position)!!)}
+            }
         }
+
+
     }
 
 
