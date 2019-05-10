@@ -13,7 +13,7 @@
 
 ##ScreenShots
 
-![alt text](https://imgbbb.com/image/NhEor)
+![Screenshot](https://imgbbb.com/image/NhEor)
 ![alt text](https://imgbbb.com/image/NhX1d)
 ![alt text](https://imgbbb.com/image/NhOOe)
 ![alt text](https://imgbbb.com/image/NhS3R)
